@@ -11,15 +11,18 @@ return new class extends Migration
      */
     public function up()
     {
-         Schema::create('tbgolongan', function (Blueprint $table) {
-            $table->id('golongan_id');
-            $table->string('golongan_nama', 20);
-            $table->bigInteger('gaji_pokok');
-            $table->bigInteger('tunjangan_keluarga');
-            $table->bigInteger('tunjangan_transport');
-            $table->bigInteger('tunjangan_makan');
+        Schema::create('tbgolongan', function (Blueprint $table) {
+        $table->engine = 'InnoDB';
+
+        $table->id('golongan_id');
+        $table->string('golongan_nama', 20);
+        $table->bigInteger('gaji_pokok');
+        $table->bigInteger('tunjangan_keluarga');
+        $table->bigInteger('tunjangan_transport');
+        $table->bigInteger('tunjangan_makan');
         });
     }
+
 
     /**
      * Reverse the migrations.
