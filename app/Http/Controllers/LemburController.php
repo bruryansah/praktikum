@@ -14,21 +14,25 @@ class LemburController extends Controller
         return view('lembur', ['lembur' => $lembur]);
     }
 
-    public function tambah()
-    {
-        return view('tambahlembur');
-    }
+   public function tambah()
+   {
+   // Ambil semua pegawai
+        $pegawai = DB::table('tbpegawai')->get();
+        return view('tambahlembur', compact('pegawai'));
+   }
+
 
     public function store(Request $request)
     {
         DB::table('tblembur')->insert([
-            'pegawai_id' => $request->pegawai_id,
-            'bulan_lembur' => $request->bulan_lembur,
-            'jumlah_lembur' => $request->jumlah_lembur,
+        'pegawai_id' => $request->pegawai_id,
+        'bulan_lembur' => $request->bulan_lembur,
+        'jumlah_lembur' => $request->jumlah_lembur,
         ]);
 
         return redirect('/lembur');
     }
+
 
     public function edit($id)
     {

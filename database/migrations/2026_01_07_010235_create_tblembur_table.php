@@ -11,12 +11,20 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('tblembur', function (Blueprint $table) {
-            $table->id('lembur_id');
-            $table->integer('pegawai_id');
-            $table->string('bulan_lembur', 20);
-            $table->bigInteger('jumlah_lembur')->default(0);
-        });
+       Schema::create('tblembur', function (Blueprint $table) {
+       $table->engine = 'InnoDB';
+
+       $table->id('lembur_id');
+       $table->unsignedBigInteger('pegawai_id'); // HARUS SAMA
+       $table->string('bulan_lembur', 20);
+       $table->bigInteger('jumlah_lembur');
+       $table->timestamps();
+
+       $table->foreign('pegawai_id')
+       ->references('pegawai_id')
+       ->on('tbpegawai')
+       ->onDelete('cascade');
+       });
     }
 
     /**

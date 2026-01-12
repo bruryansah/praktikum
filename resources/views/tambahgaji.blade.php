@@ -337,13 +337,19 @@
             <form action="/gaji/store" method="post">
                 {{ csrf_field() }}
 
-                <div class="form-grid">
-                    <div class="form-group">
-                        <label class="form-label">
-                            <i class="fas fa-user"></i> ID Pegawai
-                        </label>
-                        <input type="text" name="pegawai_id" class="form-input" required placeholder="Masukkan ID pegawai">
-                    </div>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label class="form-label">
+                                <i class="fas fa-user"></i> Pegawai
+                            </label>
+                            <select name="pegawai_id" class="form-select" required>
+                                <option value="">-- Pilih Pegawai --</option>
+                                @foreach($pegawai as $p)
+                                    <option value="{{ $p->pegawai_id }}">{{ $p->pegawai_nama }} ({{ $p->pegawai_jabatan }})</option>
+                                @endforeach
+                            </select>
+                        </div>
+
 
                     <div class="form-group">
                         <label class="form-label">

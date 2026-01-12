@@ -69,6 +69,8 @@ Route::get('pegawai', [PegawaiController::class, 'index']);
 Route::get('golongan', [GolonganController::class, 'index']);
 Route::get('gaji', [GajiController::class, 'index']);
 Route::get('lembur', [LemburController::class, 'index']);
+Route::get('/', [PegawaiController::class, 'index'])->name('home');
+
 
 // CREATE routes
 Route::get('pegawai/tambah', [PegawaiController::class, 'tambah']);
@@ -105,3 +107,21 @@ Route::get('/golongan/hapus/{id}', [GolonganController::class, 'hapus']);
 Route::get('/gaji/hapus/{id}', [GajiController::class, 'hapus']);
 
 Route::get('/lembur/hapus/{id}', [LemburController::class, 'hapus']);
+
+
+// LOGIN routes //
+
+Route::get('/', [LoginCon::class, 'login'])->name('login');
+
+Route::post('actionlogin', [LoginCon::class, 'actionlogin'])->name('actionlogin');
+
+Route::get('dashboard', [DashboardCon::class, 'index'])->name('dashboard')->
+middleware('auth');
+
+Route::get('actionlogout', [LoginCon::class, 'actionlogout'])->name('actionlogout')->
+middleware('auth');
+
+// REGISTER route //
+
+Route::get('register', [RegisterCon::class, 'register'])->name('register');
+Route::post('register/action', [RegisterCon::class, 'actionregister'])-> name('actionregister');

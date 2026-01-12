@@ -10,191 +10,300 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
-        * { margin:0; padding:0; box-sizing:border-box; }
-
-        body {
-            font-family:'Inter',sans-serif;
-            background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);
-            min-height:100vh;
-            color:#2d3748;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
-        .container { max-width:900px; margin:0 auto; padding:2rem; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #2d3748;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
 
         header {
-            background:white;
-            padding:2rem;
-            border-radius:16px;
-            box-shadow:0 10px 40px rgba(0,0,0,.1);
-            margin-bottom:2rem;
-            text-align:center;
+            background: white;
+            padding: 2rem;
+            border-radius: 16px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+            text-align: center;
         }
 
         header h1 {
-            font-size:2rem;
-            font-weight:700;
-            color:#667eea;
-            margin-bottom:.5rem;
+            font-size: 2rem;
+            font-weight: 700;
+            color: #667eea;
+            margin-bottom: 0.5rem;
         }
 
-        header p { color:#718096; font-size:.95rem; }
+        header p {
+            color: #718096;
+            font-size: 0.95rem;
+        }
 
         nav {
-            background:white;
-            border-radius:12px;
-            box-shadow:0 4px 20px rgba(0,0,0,.08);
-            margin-bottom:2rem;
-            overflow:hidden;
+            background: white;
+            padding: 0;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            margin-bottom: 2rem;
+            overflow: hidden;
         }
 
         nav a {
-            display:inline-block;
-            padding:1rem 1.5rem;
-            color:#4a5568;
-            text-decoration:none;
-            font-weight:500;
-            transition:.3s;
-            position:relative;
+            display: inline-block;
+            padding: 1rem 1.5rem;
+            color: #4a5568;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
         }
 
-        nav a:hover { background:#f7fafc; color:#667eea; }
+        nav a:hover {
+            color: #667eea;
+            background: #f7fafc;
+        }
 
         nav a::after {
-            content:'';
-            position:absolute;
-            bottom:0; left:50%;
-            width:0; height:3px;
-            background:#667eea;
-            transform:translateX(-50%);
-            transition:.3s;
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 3px;
+            background: #667eea;
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
         }
 
-        nav a:hover::after { width:80%; }
+        nav a:hover::after {
+            width: 80%;
+        }
 
         .form-card {
-            background:white;
-            border-radius:16px;
-            box-shadow:0 10px 40px rgba(0,0,0,.1);
-            padding:2.5rem;
-            margin-bottom:2rem;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            padding: 2.5rem;
+            margin-bottom: 2rem;
         }
 
         .form-header {
-            display:flex;
-            justify-content:space-between;
-            align-items:center;
-            margin-bottom:2rem;
-            padding-bottom:1.5rem;
-            border-bottom:2px solid #e2e8f0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 2px solid #e2e8f0;
         }
 
-        .form-title { font-size:1.5rem; font-weight:600; }
+        .form-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #2d3748;
+        }
 
         .btn {
-            display:inline-flex;
-            align-items:center;
-            gap:.5rem;
-            padding:.75rem 1.5rem;
-            border-radius:8px;
-            text-decoration:none;
-            font-weight:500;
-            transition:.3s;
-            border:none;
-            cursor:pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 0.95rem;
         }
 
-        .btn-back { background:#718096; color:white; }
-        .btn-back:hover { background:#4a5568; transform:translateY(-2px); }
+        .btn-back {
+            background: #718096;
+            color: white;
+        }
+
+        .btn-back:hover {
+            background: #4a5568;
+            transform: translateY(-2px);
+        }
 
         .btn-submit {
-            width:100%;
-            padding:1rem;
-            font-size:1rem;
-            color:white;
-            background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);
-            box-shadow:0 4px 15px rgba(102,126,234,.4);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            width: 100%;
+            padding: 1rem;
+            font-size: 1rem;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
         }
 
         .btn-submit:hover {
-            transform:translateY(-2px);
-            box-shadow:0 6px 20px rgba(102,126,234,.6);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: #4a5568;
+            font-size: 0.95rem;
+        }
+
+        .form-label i {
+            margin-right: 0.5rem;
+            color: #667eea;
+        }
+
+        .form-input,
+        .form-select {
+            width: 100%;
+            padding: 0.875rem 1rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            font-family: 'Inter', sans-serif;
+            color: #2d3748;
+        }
+
+        .form-input:focus,
+        .form-select:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
         }
 
         .info-box {
-            background:#e6fffa;
-            border-left:4px solid #38b2ac;
-            padding:1rem;
-            border-radius:8px;
-            margin-bottom:2rem;
-            display:flex;
-            gap:1rem;
+            background: #e6fffa;
+            border-left: 4px solid #38b2ac;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: start;
+            gap: 1rem;
         }
 
-        .info-box i { color:#38b2ac; font-size:1.2rem; }
-
-        .form-group { margin-bottom:1.5rem; }
-
-        .form-label {
-            display:block;
-            margin-bottom:.5rem;
-            font-weight:500;
-            color:#4a5568;
+        .info-box i {
+            color: #38b2ac;
+            font-size: 1.2rem;
+            margin-top: 0.2rem;
         }
 
-        .form-label i { margin-right:.5rem; color:#667eea; }
-
-        .form-input {
-            width:100%;
-            padding:.875rem 1rem;
-            border:2px solid #e2e8f0;
-            border-radius:8px;
-            font-size:.95rem;
-        }
-
-        .form-input:focus {
-            outline:none;
-            border-color:#667eea;
-            box-shadow:0 0 0 3px rgba(102,126,234,.1);
+        .info-box p {
+            color: #234e52;
+            font-size: 0.9rem;
+            margin: 0;
         }
 
         .form-grid {
-            display:grid;
-            grid-template-columns:1fr 1fr;
-            gap:1.5rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .form-grid-full {
+            grid-column: 1 / -1;
         }
 
         footer {
-            background:white;
-            padding:2rem;
-            text-align:center;
-            border-radius:12px;
-            box-shadow:0 4px 20px rgba(0,0,0,.08);
-            color:#718096;
-            font-size:.9rem;
+            background: white;
+            padding: 2rem;
+            text-align: center;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            color: #718096;
+            font-size: 0.9rem;
         }
 
         .whatsapp-float {
-            position:fixed;
-            bottom:30px;
-            right:30px;
-            width:60px;
-            height:60px;
-            background:#25D366;
-            border-radius:50%;
-            display:flex;
-            align-items:center;
-            justify-content:center;
-            box-shadow:0 4px 20px rgba(37,211,102,.5);
-            text-decoration:none;
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.5);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 999;
+            text-decoration: none;
         }
 
-        .whatsapp-float i { color:white; font-size:30px; }
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 30px rgba(37, 211, 102, 0.7);
+        }
 
-        @media(max-width:768px){
-            .container{padding:1rem;}
-            nav{display:flex;flex-wrap:wrap;}
-            nav a{flex:1;min-width:100px;text-align:center;}
-            .form-grid{grid-template-columns:1fr;}
+        .whatsapp-float i {
+            color: white;
+            font-size: 30px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+
+            header h1 {
+                font-size: 1.5rem;
+            }
+
+            nav {
+                display: flex;
+                flex-wrap: wrap;
+            }
+
+            nav a {
+                flex: 1;
+                min-width: 100px;
+                text-align: center;
+                padding: 0.75rem;
+                font-size: 0.875rem;
+            }
+
+            .form-card {
+                padding: 1.5rem;
+            }
+
+            .form-header {
+                flex-direction: column;
+                gap: 1rem;
+                align-items: flex-start;
+            }
+
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .whatsapp-float {
+                width: 50px;
+                height: 50px;
+                bottom: 20px;
+                right: 20px;
+            }
+
+            .whatsapp-float i {
+                font-size: 24px;
+            }
         }
     </style>
 </head>
@@ -236,7 +345,12 @@
                 <label class="form-label">
                     <i class="fas fa-id-badge"></i> ID Pegawai
                 </label>
-                <input type="text" name="pegawai_id" class="form-input" required>
+                <select name="pegawai_id" class="form-select" required>
+                    <option value="">-- Pilih Pegawai --</option>
+                    @foreach($pegawai as $p)
+                        <option value="{{ $p->pegawai_id }}">{{ $p->pegawai_nama }} ({{ $p->pegawai_jabatan }})</option>
+                    @endforeach
+                </select>
             </div>
 
             <div class="form-group">

@@ -17,23 +17,30 @@ class GajiController extends Controller
     // Menampilkan form untuk menambah data gaji
     public function tambah()
     {
-        return view('tambahgaji');
+        $pegawai = DB::table('tbpegawai')->get();
+
+        return view('tambahgaji', compact('pegawai'));
     }
 
     // Menyimpan data gaji baru
     public function store(Request $request)
     {
-        DB::table('tbgaji')->insert([
-            'pegawai_id' => $request->input('pegawai_id'),
-            'jumlah_gaji' => $request->input('jumlah_gaji'),
-            'jumlah_lembur' => $request->input('jumlah_lembur'),
-            'potongan' => $request->input('potongan'),
-            'gaji_diterima' => $request->input('gaji_diterima'),
-            'tanggal_gaji' => $request->input('tanggal_gaji'),
-        ]);
+        $jumlah_gaji = $request->input('jumlah_gaji');
+        $jumlah_lembur = $request->input('jumlah_lembur');
+        $potongan = $request->input('potongan');
 
-        return redirect('/gaji');
+        DB::table('tbgaji')->insert([
+        'pegawai_id' => $request->input('pegawai_id'),
+        'jumlah_gaji' => $jumlah_gaji,
+        'jumlah_lembur' => $jumlah_lembur,
+        'potongan' => $potongan,
+        'gaji_diterima' => $jumlah_gaji + $jumlah_lembur - $potongan,
+        'tanggal_gaji' => $request->input('tanggal_gaji'),
+    ]);
+
+    return redirect('/gaji');
     }
+
 
     // Menampilkan form untuk mengedit data gaji
     public function edit($id)

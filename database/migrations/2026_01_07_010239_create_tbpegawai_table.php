@@ -11,13 +11,16 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('tbpegawai', function (Blueprint $table) {
-            $table->id('pegawai_id');
-            $table->string('pegawai_nama', 50);
-            $table->string('pegawai_jabatan', 20);
-            $table->integer('pegawai_umur');
-            $table->text('pegawai_alamat');
-        });
+      Schema::create('tbpegawai', function (Blueprint $table) {
+         $table->engine = 'InnoDB';
+
+        $table->id('pegawai_id'); // BIGINT UNSIGNED
+        $table->string('pegawai_nama');
+        $table->string('pegawai_jabatan');
+        $table->integer('pegawai_umur');
+        $table->text('pegawai_alamat');
+        $table->timestamps();
+      });
     }
 
     /**
